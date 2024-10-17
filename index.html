@@ -3,40 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora de Sistema Fotovoltaico</title>
+    <title>Calculadora Fotovoltaica</title>
     <link rel="stylesheet" href="src/css/styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <div class="container">
-      <h1>Calculadora de Sistema Fotovoltaico</h1>
+      <!-- Formulário -->
+      <form id="solarForm">
+        <h1>Simule seu sistema fotovoltaico</h1>
 
-      <form id="solarCalculator">
-        <label for="energyBill">Valor da conta de energia (R$):</label>
-        <input type="number" id="energyBill" required />
-
-        <label for="customerType">Tipo de cliente:</label>
-        <select id="customerType" required>
-          <option value="residential">Residencial</option>
-          <option value="business">Empresarial</option>
+        <label for="residencialEmpresarial">Tipo de consumidor:</label>
+        <select id="residencialEmpresarial" name="residencialEmpresarial">
+          <option value="residencial">Residencial</option>
+          <option value="empresarial">Empresarial</option>
         </select>
 
-        <label for="region">Selecione sua região:</label>
-        <select id="region" required>
-          <option value="6">Brasília</option>
-          <option value="5.5">Goiás</option>
+        <label for="cidade">Selecione sua cidade:</label>
+        <select id="cidade" name="cidade">
+          <option value="brasilia">Brasília</option>
+          <option value="goias">Goiás</option>
         </select>
 
-        <label for="panelPower">Potência do painel solar (W):</label>
-        <input type="number" id="panelPower" value="400" required />
+        <label for="valorConta">Valor da conta de energia (R$):</label>
+        <input
+          type="number"
+          id="valorConta"
+          name="valorConta"
+          placeholder="Digite o valor da conta"
+        />
 
         <button type="submit">Calcular</button>
       </form>
 
-      <div id="result" class="result-card"></div>
+      <!-- Card de resultados -->
+      <div class="result-card" id="resultCard" style="display: none">
+        <div>Estimativa de investimento: <span id="investimento"></span></div>
+        <div>Tamanho do sistema: <span id="potencia"></span></div>
+        <div>Produção anual estimada: <span id="producaoAnual"></span></div>
+        <div>Área necessária: <span id="areaNecessaria"></span></div>
+        <div>Quantidade de painéis: <span id="paineis"></span></div>
+        <div>Economia em 30 anos: <span id="economia30Anos"></span></div>
+        <div>
+          Economia aplicada em renda fixa: <span id="economiaRendaFixa"></span>
+        </div>
+        <a id="whatsappLink" href="#" target="_blank">
+          <button type="button">Quer receber um orçamento?</button>
+        </a>
+      </div>
     </div>
 
     <script src="src/js/script.js"></script>
